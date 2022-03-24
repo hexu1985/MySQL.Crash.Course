@@ -63,6 +63,12 @@ bind-address= 127.0.0.1
 # bind-address= 127.0.0.1
 ```
 
+注意需要重启MySQL。
+
+```
+$ service mysql restart
+```
+
 然后授权远程用户登录
 
 ```
