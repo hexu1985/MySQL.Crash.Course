@@ -36,12 +36,13 @@ mysql>
 $ mysqladmin -u root -p'你的密码' version
 ```
 
-#### 增加用户
+#### 增加用户并授权
 
 ```
 $ mysql -uroot -p'你的密码'
 mysql> create user hexu;
 mysql> ALTER USER 'hexu' IDENTIFIED WITH mysql_native_password BY '123456';
+mysql> grant all on *.* to hexu;
 ```
 
 #### 远程登陆
@@ -76,7 +77,7 @@ $ service mysql restart
 $ mysql -u root -p
 # 对于mySQL 8.0及以后版本，使用下面的命令进行授权（ %表示任意地址，也可以指定IP）
 mysql> use mysql;
-mysql> update user set user.Host='%' where user.User='root';
+mysql> update user set user.Host='%' where user.User='hexu';
 mysql> flush privileges;
 ```
 
